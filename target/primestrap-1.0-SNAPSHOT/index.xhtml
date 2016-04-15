@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:util="http://xmlns.jcp.org/jsf/composite/components/util"
+                xmlns:p="http://primefaces.org/ui" template="/templates/flat/main.xhtml">
+    <ui:define name="content">                        
+        <h1 class="page-header">Dashboard</h1>
+
+        <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+        </div>
+
+        <h2 class="sub-header">Section title</h2>
+        <div class="table-responsive">
+            <h:form>
+                <p:dataTable id="tborder" 
+                             value="#{claimBean.claimList}" var="o"                         
+                             rows="10"
+                                          paginator="true"
+                                             rowsPerPageTemplate="5,10,15"
+                                             resizableColumns="true"
+                                             >
+
+                    <p:column>
+
+                        <f:facet name="header">Claim ID</f:facet>
+                            #{o.id}
+
+                    </p:column>
+
+                    <p:column>
+
+                        <f:facet name="header">Injury Date</f:facet>
+                            #{o.date}
+
+                    </p:column>
+
+
+
+                    <p:column>
+
+                        <f:facet name="header">Action</f:facet>
+                        <p:commandButton value="Edit"  ajax="false" action="#{claimBean.deleteAction(o)}" styleClass="btn btn-primary" icon="glyphicon glyphicon-edit" />
+                        <p:commandButton value="Delete"  ajax="false" action="#{claimBean.deleteAction(o)}" styleClass="btn btn-danger" icon="glyphicon glyphicon-remove" />
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>        
+
